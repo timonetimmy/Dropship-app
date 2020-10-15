@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Display driving directions</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+<style> 
+  body { margin: 0; padding: 0; }
+  #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+    type="text/css"
+/>
+<div id="map"></div>
+<div id="map">
+    
+    <button onclick="location.href='Courier location.html'"  style="position: absolute; z-index: 1000; right: 100px; float: right;">Courier Location</button>
+</div>
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoidGltb25lb3RpZW5vIiwiYSI6ImNrZnY1cms5NzA3b2QyeXA3dTZpbDN3amUifQ.a7w4Wj-Ue_Lm_wVifPu7oQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/timoneotieno/ckg0ryrx62hn519qx9pztjall',
+        center: [36.817223, -1.286389],
+        zoom: 13
+    });
+
+    map.addControl(
+        new MapboxDirections({
+            accessToken: mapboxgl.accessToken
+        }),
+        'top-left'
+    );
+</script>
+
+</body>
+</html>
